@@ -65,10 +65,17 @@ do {
       let duracionPista;
       do {
           duracionPista = prompt("Ingrese la duración de la pista en segundos (entre 0 y 1000):");
-          if (duracionPista === null || isNaN(duracionPista) || duracionPista < 0 || duracionPista > 1000) {
+      
+          if (duracionPista === "" || duracionPista === null) {
+              alert("Por favor, complete el campo.");
+          } else if (isNaN(duracionPista) || duracionPista < 0 || duracionPista > 1000) {
               alert("Debe ingresar una duración válida (entre 0 y 1000 segundos).");
           }
-      } while (duracionPista === null || isNaN(duracionPista) || duracionPista < 0 || duracionPista > 1000);
+      
+      } while (duracionPista === "" || duracionPista === null || isNaN(duracionPista) || duracionPista < 0 || duracionPista > 1000);
+      
+      alert("Duración de pista válida: " + duracionPista + " segundos.");
+      
       
       // agrego la pista al array de pistas
       pistas.push(new Pista(nombrePista, Number(duracionPista)));
